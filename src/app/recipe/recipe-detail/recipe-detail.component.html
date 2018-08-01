@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-md-12">
+		<img [src] = "recipe.imagePath" src="" class="img-responsive img-thumbnail recipe-detail-img">
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<h1>{{recipe.name}}</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12" appDropdown>
+		<button class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span></button>
+		<ul class="dropdown-menu">
+			<li><a href="#">Add to Shopping List</a></li>
+			<li><a href="#">Edit Reicpe</a></li>
+			<li><a href="#">Delete Recipe</a></li>
+		</ul>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="col-md-12">
+		<p>{{recipe.description}}</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		Ingredients
+	</div>
+</div>
