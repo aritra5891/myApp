@@ -5,3 +5,9 @@ div {
     margin-left: 0px;
     padding-left: 0px;
 }
+.ingredient-list {
+    width: 200px;
+}
+.ingredient-list .badge {
+    background-color: #313ea6;
+}

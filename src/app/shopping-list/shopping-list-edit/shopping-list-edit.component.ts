@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { ShoppingListService } from './../shopping-list.service';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Ingredient } from '../../shared/ingredient.model';
 
 @Component({
@@ -10,9 +11,9 @@ export class ShoppingListEditComponent implements OnInit {
 
   @ViewChild ('ingredientName') ingredientName : ElementRef;
   @ViewChild ('ingredientAmount') ingredientAmount : ElementRef;
-  @Output() ingredientAdded = new EventEmitter<Ingredient>();
 
-  constructor() { }
+
+  constructor(private shopinglistService : ShoppingListService) { }
 
   ngOnInit() {
   }
@@ -20,8 +21,10 @@ export class ShoppingListEditComponent implements OnInit {
   onAddIngredient(e) {
     e.stopPropagation();
     if(this.ingredientName.nativeElement.value.match("[A-Za-z]") && this.ingredientAmount.nativeElement.value > 0) {
-      const newIngredient = new Ingredient(this.ingredientName.nativeElement.value, this.ingredientAmount.nativeElement.value)
-      this.ingredientAdded.emit(newIngredient)
+      const newIngredient = new Ingredient(this.ingredientName.nativeElement.value, parseInt(this.ingredientAmount.nativeElement.value))
+      this.shopinglistService.addIngredient(newIngredient);
+    } else {
+      alert('Wrong Syntax');
     }
   }
 
