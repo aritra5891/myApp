@@ -5,14 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-
-  showView = 'recipe';
-
-  togglePages(pageType: string) {
-    this.showView = pageType;
-  }
-
-
-
-}
+export class AppComponent {}

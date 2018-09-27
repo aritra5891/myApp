@@ -1,6 +1,6 @@
 import { Ingredient } from './../shared/ingredient.model';
 import { Recipe } from './recipe.model';
-import { EventEmitter } from '@angular/core';
+
 
 
 export class RecipeService {
@@ -28,10 +28,10 @@ export class RecipeService {
                 ]),
   ];
 
-  recipeSelected = new EventEmitter<Recipe>();
 
-
-
-
+  getRecipeDetail(recipeName) {
+    let recipeObj = this.recipe.slice().find(recipe => recipe.name === recipeName);
+    return recipeObj;
+  }
 
 }
